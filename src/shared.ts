@@ -31,9 +31,5 @@ export const cookieOptions: CookieOptions = {
   sameSite: ENV === "development" ? false : "none",
 };
 
-export const REDIS_HOST = process.env.REDIS_HOST;
-export const REDIS_PORT = process.env.REDIS_PORT
-  ? parseInt(process.env.REDIS_PORT)
-  : undefined;
-export const REDIS_PASSWORD = process.env.REDIS_PASSWORD;
+export const REDIS_URL = process.env.REDIS_URL;
 export const SESSION_SECRET = process.env.SESSION_SECRET;

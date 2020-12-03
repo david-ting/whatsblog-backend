@@ -2,18 +2,10 @@ import express from "express";
 import redis from "redis";
 import session from "express-session";
 import connectRedis from "connect-redis";
-import {
-  REDIS_HOST,
-  REDIS_PASSWORD,
-  REDIS_PORT,
-  SESSION_SECRET,
-  ENV,
-} from "./shared";
+import { REDIS_URL, SESSION_SECRET, ENV } from "./shared";
 let RedisStore = connectRedis(session);
 let redisClient = redis.createClient({
-  port: REDIS_PORT,
-  host: REDIS_HOST,
-  password: REDIS_PASSWORD,
+  url: REDIS_URL,
 });
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
@@ -103,4 +95,8 @@ app.use(
 
 app.listen(PORT, () => {
   console.log(`App listening on Port ${PORT}`);
+});
+
+redisClient.on("error", function (err) {
+  console.log("Error " + err);
 });
