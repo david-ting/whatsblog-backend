@@ -11,9 +11,7 @@ var connect_redis_1 = __importDefault(require("connect-redis"));
 var shared_1 = require("./shared");
 var RedisStore = connect_redis_1.default(express_session_1.default);
 var redisClient = redis_1.default.createClient({
-    port: shared_1.REDIS_PORT,
-    host: shared_1.REDIS_HOST,
-    password: shared_1.REDIS_PASSWORD,
+    url: shared_1.REDIS_URL,
 });
 var dotenv_1 = __importDefault(require("dotenv"));
 var body_parser_1 = __importDefault(require("body-parser"));
@@ -82,5 +80,8 @@ exports.app.use(function (err, _req, res, _next) {
 });
 exports.app.listen(PORT, function () {
     console.log("App listening on Port " + PORT);
+});
+redisClient.on("error", function (err) {
+    console.log("Error " + err);
 });
 //# sourceMappingURL=index.js.map

@@ -7,6 +7,7 @@ let RedisStore = connectRedis(session);
 let redisClient = redis.createClient({
   url: REDIS_URL,
 });
+
 import dotenv from "dotenv";
 import bodyParser from "body-parser";
 import cookieParser from "cookie-parser";

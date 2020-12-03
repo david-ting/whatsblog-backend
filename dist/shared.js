@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.SESSION_SECRET = exports.REDIS_PASSWORD = exports.REDIS_PORT = exports.REDIS_HOST = exports.cookieOptions = exports.ENV = exports.cloudinary = exports.isPositiveInteger = exports.isPositiveIntegerString = exports.nonEmptyString = void 0;
+exports.SESSION_SECRET = exports.REDIS_URL = exports.cookieOptions = exports.ENV = exports.cloudinary = exports.isPositiveInteger = exports.isPositiveIntegerString = exports.nonEmptyString = void 0;
 var dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 function nonEmptyString(input) {
@@ -29,10 +29,6 @@ exports.cookieOptions = {
     secure: exports.ENV !== "development",
     sameSite: exports.ENV === "development" ? false : "none",
 };
-exports.REDIS_HOST = process.env.REDIS_HOST;
-exports.REDIS_PORT = process.env.REDIS_PORT
-    ? parseInt(process.env.REDIS_PORT)
-    : undefined;
-exports.REDIS_PASSWORD = process.env.REDIS_PASSWORD;
+exports.REDIS_URL = process.env.REDIS_URL;
 exports.SESSION_SECRET = process.env.SESSION_SECRET;
 //# sourceMappingURL=shared.js.map
