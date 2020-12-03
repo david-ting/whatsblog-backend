@@ -30,6 +30,7 @@ exports.app = express_1.default();
 exports.app.use(body_parser_1.default.json({ limit: "20mb" }));
 exports.app.use(body_parser_1.default.urlencoded({ extended: true }));
 exports.app.use(cookie_parser_1.default(COOKIE_SECRET));
+exports.app.set('trust proxy', 1);
 exports.app.use(express_session_1.default({
     store: new RedisStore({ client: redisClient }),
     secret: shared_1.SESSION_SECRET,

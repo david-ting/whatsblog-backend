@@ -28,6 +28,7 @@ export const app = express();
 app.use(bodyParser.json({ limit: "20mb" }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(COOKIE_SECRET));
+app.set('trust proxy', 1)
 app.use(
   session({
     store: new RedisStore({ client: redisClient }),
