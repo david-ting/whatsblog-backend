@@ -28,7 +28,8 @@ function createTables() {
   post_id INTEGER REFERENCES posts NOT NULL,
   reply_to INTEGER, 
   content JSON NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL
+  created_at TIMESTAMPTZ NOT NULL,
+  reply_counts INTEGER DEFAULT 0
   )`
   );
 }

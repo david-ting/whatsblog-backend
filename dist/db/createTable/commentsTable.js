@@ -57,7 +57,7 @@ function dropTables() {
     return pool.query("DROP TABLE IF EXISTS comments");
 }
 function createTables() {
-    return pool.query("CREATE TABLE comments (\n  comment_id SMALLSERIAL PRIMARY KEY,\n  commenter_id INTEGER REFERENCES users(user_id) NOT NULL,\n  post_id INTEGER REFERENCES posts NOT NULL,\n  reply_to INTEGER, \n  content JSON NOT NULL,\n  created_at TIMESTAMPTZ NOT NULL\n  )");
+    return pool.query("CREATE TABLE comments (\n  comment_id SMALLSERIAL PRIMARY KEY,\n  commenter_id INTEGER REFERENCES users(user_id) NOT NULL,\n  post_id INTEGER REFERENCES posts NOT NULL,\n  reply_to INTEGER, \n  content JSON NOT NULL,\n  created_at TIMESTAMPTZ NOT NULL,\n  reply_counts INTEGER DEFAULT 0\n  )");
 }
 (function () { return __awaiter(void 0, void 0, void 0, function () {
     var err_1;

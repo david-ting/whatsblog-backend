@@ -117,22 +117,11 @@ router.post(["/log-in/name", "/log-in/email"], function (req, res, next) {
     });
 });
 // log-out route
-router.post("/log-out", authMiddleware_1.checkSessionCookie, function (req, res, next) {
-    // const user_id = req.signedCookies.user_id;
-    // if (!isPositiveIntegerString(user_id)) {
-    //   res.status(401);
-    //   return next(new Error("unauthorized"));
-    // }
-    // getUser(parseInt(user_id))
-    //   .then((_result) => {
-    //     res.clearCookie("user_id");
-    //     res.json({ message: "logged out successfully" });
-    //   })
-    //   .catch((err) => {
-    //     console.error(err);
-    //     res.status(401);
-    //     next(new Error("user not found"));
-    //   });
+router.post("/log-out", function (req, res, next) {
+    res.cookie("connect.sid", null, {
+        expires: new Date("Thu, 01 Jan 1970 00:00:00 UTC"),
+        httpOnly: true,
+    });
     req.session.destroy(function (err) {
         console.error(err);
         if (err === null) {
