@@ -9,6 +9,6 @@ Cloudinary API has also been integrated in this project for uploading the images
 #### Environmental variables
 * DB_CONNECTION (the url for connecting to the postgres database)
 * REDIS_URL (the url for connecting to the redis database)
-* CLITNE_ORIGIN, CLIENT_URL (for enabling CORS) 
+* CLIENT_URL (for enabling CORS) 
 * SESSION_SECRET (for signing the session ID cookie)
 * CLOUDINARY_NAME, CLOUDINARY_API_KEY, CLOUDINARY_API_SECRET (for connecting to the cloundinary API)
